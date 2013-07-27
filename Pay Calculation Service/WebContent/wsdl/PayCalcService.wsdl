@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://fajsd" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://fajsd" xmlns:intf="http://fajsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://fajsd" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="personPayable">
+    <complexType>
+     <sequence>
+      <element name="personID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="personPayableResponse">
+    <complexType>
+     <sequence>
+      <element name="personPayableReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="makePayroll">
+    <complexType>
+     <sequence>
+      <element name="departmentID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="makePayrollResponse">
+    <complexType>
+     <sequence>
+      <element name="makePayrollReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="personPayableResponse">
+
+      <wsdl:part element="impl:personPayableResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="makePayrollResponse">
+
+      <wsdl:part element="impl:makePayrollResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="makePayrollRequest">
+
+      <wsdl:part element="impl:makePayroll" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="personPayableRequest">
+
+      <wsdl:part element="impl:personPayable" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PayCalcService">
+
+      <wsdl:operation name="personPayable">
+
+         <wsdl:input message="impl:personPayableRequest" name="personPayableRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:personPayableResponse" name="personPayableResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="makePayroll">
+
+         <wsdl:input message="impl:makePayrollRequest" name="makePayrollRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:makePayrollResponse" name="makePayrollResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PayCalcServiceSoapBinding" type="impl:PayCalcService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="personPayable">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="personPayableRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="personPayableResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="makePayroll">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="makePayrollRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="makePayrollResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PayCalcServiceService">
+
+      <wsdl:port binding="impl:PayCalcServiceSoapBinding" name="PayCalcService">
+
+         <wsdlsoap:address location="http://localhost:8080/abc/services/PayCalcService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
