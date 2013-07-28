@@ -6,8 +6,8 @@ There are three system
 2, Training Report System aka (teju)
 3, Person Information Service (abhi)
 
-These 3 systems have a different Database which serve them and they also
+These 3 systems have different Database which serve them and they also
 have one common database which serves all three systems.
 
-There 3 systems reside in different locations, communicate through web services
-to get data from each system. 
+These 3 systems reside in 3 different locations, they communicate through web services
+to exchange data from each system. 
